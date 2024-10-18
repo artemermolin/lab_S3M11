@@ -1,0 +1,90 @@
+# Проверяем версию Git
+git --version
+
+# Создаем новую директорию для проекта и инициализируем репозиторий
+mkdir lab_S3M11
+cd lab_S3M11
+git init
+
+# Настраиваем пользователя Git
+git config --global user.name "Артем Ермолин"
+git config --global user.email "dr.pomanep@YA"
+
+# Создаем файл README и делаем первый коммит
+echo "Hello world" > README
+git add README
+git commit -m "Initial commit"
+
+# Создаем ветку hotfix4 для исправления багов
+git checkout -b hotfix4
+echo "Fix Authentication Issue" >> README
+echo "Resolve UI Crashes" >> README
+git add README
+git commit -m "Fix Authentication Issue and Resolve UI Crashes"
+
+# Возвращаемся на основную ветку и сливаем изменения
+git checkout master
+git merge hotfix4
+
+# Создаем ветку feature9 для новых функций
+git checkout -b feature9
+echo "Address Memory Leaks" >> README
+echo "Enhance Error Handling" >> README
+echo "Update Dependencies" >> README
+git add README
+git commit -m "Address Memory Leaks, Enhance Error Handling, Update Dependencies"
+
+# Создаем ветку hotfix3 и сливаем с feature9
+git checkout -b hotfix3
+git merge feature9
+
+# Создаем ветку feature8 для улучшений
+git checkout -b feature8
+echo "Improve Load Balancing" >> README
+echo "Add Microservice Support" >> README
+echo "Implement WebSockets" >> README
+git add README
+git commit -m "Improve Load Balancing, Add Microservice Support, Implement WebSockets"
+
+# Возвращаемся на основную ветку и сливаем feature8
+git checkout master
+git merge feature8
+
+# Создаем ветку feature7 для дальнейших улучшений
+git checkout -b feature7
+echo "Add More Endpoints" >> README
+echo "Improve API Documentation" >> README
+echo "Fix CORS Issues" >> README
+git add README
+git commit -m "Add More Endpoints, Improve API Documentation, Fix CORS Issues"
+
+# Создаем ветку hotfix2 и сливаем с feature7
+git checkout -b hotfix2
+git merge feature7
+
+# Создаем ветку hotfix1 для критических исправлений
+git checkout -b hotfix1
+echo "Fix Login Flow" >> README
+echo "Resolve Payment Bugs" >> README
+echo "Add Session Management" >> README
+git add README
+git commit -m "Fix Login Flow, Resolve Payment Bugs, Add Session Management"
+
+# Создаем ветку feature5 и сливаем с hotfix1
+git checkout -b feature5
+git merge hotfix1
+
+# Создаем ветку feature4 для основных функциональностей
+git checkout -b feature4
+echo "Add Core Functionalities" >> README
+git add README
+git commit -m "Add Core Functionalities"
+
+# Возвращаемся на основную ветку и сливаем feature6
+git checkout master
+git checkout -b feature6
+echo "Integrate Latest Changes" >> README
+git add README
+git commit -m "Integrate Latest Changes"
+git checkout master
+git merge feature6
